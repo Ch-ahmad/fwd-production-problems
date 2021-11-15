@@ -4,10 +4,9 @@
   `x` as the variable inside the function, however.
 */
 
-x = 5;
-
+var x = 5;
 function double(num) {
-  x = num * 2;
+  var x = num * 2;
   return x;
 }
 
@@ -24,9 +23,32 @@ console.log('The value of x is', x, '-- it should be 5.');
   can accurately test your work.
 */
 
+(function() {
+  function double(num) {
+    var x = num * 2;
+    return x;
+  }
+
+  double(6);
+})();
 
 /*
   Step 3. Rewrite your corrected `double()` function from Step 2.
   so that non-number values passed into the function are handled
   in some reasonable way.
 */
+
+
+(function() {
+  function double(num) {
+    if(isNaN(num)) {
+      return undefined;
+    }
+    var x = num * 2;
+    return x;
+  }
+
+  double(6);
+
+})();
+
